@@ -44,7 +44,7 @@ export default ({ config, db }) => {
   // '/v1/foodtruck/:id' - Read 1 specific object
 
   api.get('/:id', (req, res) => {
-    Foodtruck.findById(req.params.id, (err, foodtrucks) =>  {
+    FoodTruck.findById(req.params.id, (err, foodtrucks) =>  {
       if (err) {
         res.send(err);
       }
@@ -55,7 +55,7 @@ export default ({ config, db }) => {
   // '/v1/foodtruck/:id' - Update
 
   api.put('/:id', authenticate ,(req, res) => {
-    Foodtruck.findById(req.params.id, (err, foodtruck) => {
+    FoodTruck.findById(req.params.id, (err, foodtruck) => {
       if (err) {
         res.send(err);
       }
@@ -73,7 +73,7 @@ export default ({ config, db }) => {
   // '/v1/foodtruck/:id' - delete
 
   api.delete('/:id', authenticate ,(req, res) => {
-    Foodtruck.remove({
+    FoodTruck.remove({
       _id: req.params.id
 
     }, (err, foodtruck) => {
